@@ -1,8 +1,9 @@
-# Teacher–Student Feature Regression for Unsupervised Defect Detection
+# Teacher–Student Feature Mapping for Unsupervised Anomaly Detection
 ### _Unsupervised anomaly detection using feature-space consistency and local regression_
 
 <p align="center">
-  <img src="examples/anomaly_map_example.png" width="500">
+  <img src="examples/case2_aligned_inspected.png" width="500">
+  <em>Example silicon waffer with three defects.</em>
 </p>
 
 This repository implements a **fast, data-efficient, fully unsupervised defect-detection pipeline** for semiconductor wafer inspection.  
@@ -40,7 +41,7 @@ Regions where the student fails to reconstruct inspected features correspond to 
 <p align="center">
   <img src="assets/architecture_schematic.png" width="600">
   <br>
-  <em>Figure: Teacher–student feature regression architecture.</em>
+  <em>Teacher–student feature regression architecture.</em>
 </p>
 
 ---
@@ -99,7 +100,7 @@ Simple difference maps miss subtle defects.
 <p align="center">
   <img src="assets/classic_results_case2.png" width="650">
   <br>
-  <em>Figure: Pixel-wise difference approach misses subtle defects.</em>
+  <em>Pixel-wise difference approach misses subtle defects.</em>
 </p>
 
 ### Teacher–Student regression succeeds  
@@ -114,13 +115,13 @@ It remains robust across lighting changes due to feature-space modeling.
 <p align="center">
   <img src="assets/case_2_r2map.png" width="600">
   <br>
-  <em>Figure: Case 2 — R² defect likelihood map obtained from teacher–student regression.</em>
+  <em>R² defect likelihood map obtained from teacher–student regression.</em>
 </p>
 
 <p align="center">
   <img src="assets/case_2_results.png" width="600">
   <br>
-  <em>Figure: Case 2 — Final binary detection mask after thresholding and morphology.</em>
+  <em>Final binary detection mask after thresholding and morphology.</em>
 </p>
 
 ---
