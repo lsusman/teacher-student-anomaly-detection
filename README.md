@@ -1,4 +1,4 @@
-# 📘 Teacher–Student Feature Regression for Unsupervised Defect Detection
+# Teacher–Student Feature Regression for Unsupervised Defect Detection
 ### _Unsupervised anomaly detection using feature-space consistency and local regression_
 
 <p align="center">
@@ -18,7 +18,7 @@ The result is a method capable of detecting subtle defects that **pixel-wise dif
 
 ---
 
-# 🚀 Key Idea
+# Key Idea
 
 Normal reference and inspected images share the same **manifold in feature space**.  
 Defects **break this manifold consistency**.
@@ -37,9 +37,15 @@ To capture this, we:
 
 Regions where the student fails to reconstruct inspected features correspond to **true defects**.
 
+<p align="center">
+  <img src="assets/architecture_schematic.png" width="600">
+  <br>
+  <em>Figure: Teacher–student feature regression architecture.</em>
+</p>
+
 ---
 
-# 🧠 Method Overview
+# Method Overview
 
 ## 1. Alignment
 Aligned images are essential for a valid feature comparison.  
@@ -85,10 +91,16 @@ This yields clean, interpretable detection masks.
 
 ---
 
-# 📊 Results
+# Results
 
 ### Pixel-wise differences fail  
 Simple difference maps miss subtle defects.
+
+<p align="center">
+  <img src="assets/classic_results_case2.png" width="650">
+  <br>
+  <em>Figure: Pixel-wise difference approach misses subtle defects.</em>
+</p>
 
 ### Teacher–Student regression succeeds  
 The method detects:
@@ -99,9 +111,21 @@ The method detects:
 
 It remains robust across lighting changes due to feature-space modeling.
 
+<p align="center">
+  <img src="assets/case_2_r2map.png" width="600">
+  <br>
+  <em>Figure: Case 2 — R² defect likelihood map obtained from teacher–student regression.</em>
+</p>
+
+<p align="center">
+  <img src="assets/case_2_results.png" width="600">
+  <br>
+  <em>Figure: Case 2 — Final binary detection mask after thresholding and morphology.</em>
+</p>
+
 ---
 
-# 🧱 Repository Structure
+# Repository Structure
 
 ```
 muze-anomaly-detection/
@@ -129,7 +153,7 @@ muze-anomaly-detection/
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ```bash
 git clone https://github.com/lsusman/muze-anomaly-detection.git
@@ -139,7 +163,7 @@ pip install -r requirements.txt
 
 ---
 
-# 🏋️ Training
+# Training
 
 ```bash
 python src/train.py   --ref data/raw/case1_aligned_reference.png   --insp data/raw/case1_aligned_inspected.png   --save student_model.pth
@@ -149,7 +173,7 @@ Uses random brightness augmentation to expand the effective dataset.
 
 ---
 
-# 🔍 Inference
+# Inference
 
 ```bash
 python src/inference.py   --ref examples/ref_sample.png   --insp examples/insp_sample.png   --model student_model.pth
@@ -164,7 +188,7 @@ Produces:
 
 ---
 
-# 🧪 Why This Works
+# Why This Works
 
 - Teacher features encode **multi-scale structure**  
 - Student regression enforces **manifold consistency**  
@@ -174,7 +198,7 @@ Produces:
 
 ---
 
-# 📈 Limitations & Future Work
+# Limitations & Future Work
 
 - Post-pooling features decrease spatial resolution  
 - Detected regions may appear larger than the true defect  
@@ -184,21 +208,3 @@ Produces:
   - non-linear student models  
 
 ---
-
-# 🙌 Acknowledgments
-
-Based on the accompanying summary report and method exploration.
-
----
-
-# 🎯 Want enhancements?
-
-I can add:
-
-- pipeline diagrams  
-- animated heatmaps  
-- badges  
-- Citation entries  
-- A visual gallery of detections  
-
-Just ask!
