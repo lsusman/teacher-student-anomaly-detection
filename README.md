@@ -2,7 +2,7 @@
 ### _Unsupervised anomaly detection using feature-space consistency and local regression_
 
 <p align="center">
-  <img src="examples/case2_aligned_inspected.png" width="500">
+  <img src="examples/case2_aligned_inspected.tif" width="500">
   <em>Example silicon waffer with three defects.</em>
 </p>
 
